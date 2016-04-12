@@ -88,10 +88,13 @@
             return element.val();
           });
           ctrl.$parsers.push(function(value) {
+            var dialCode, selectedCountryData;
             if (!value) {
               return value;
             }
-            return value.replace(/[^\d]/g, '');
+            selectedCountryData = element.intlTelInput('getSelectedCountryData');
+            dialCode = selectedCountryData != null ? selectedCountryData.dialCode : void 0;
+            return '+' + dialCode + ' ' + value.replace(/[^\d]/g, '');
           });
           ctrl.$validators.internationalPhoneNumber = function(value) {
             var selectedCountry;
