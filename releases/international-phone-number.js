@@ -67,6 +67,7 @@
                   newValue = '+' + newValue;
                 }
                 ctrl.$modelValue = newValue;
+                element.val(newValue);
               }
               element.intlTelInput(options);
               if (!(options.skipUtilScriptDownload || attrs.skipUtilScriptDownload !== void 0 || options.utilsScript)) {
